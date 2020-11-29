@@ -6,5 +6,5 @@
  - Status: Em desenvolvimento;
  
 # Considerações
-Desejo a todos que utilizarem a ferramenta sucesso, seja pra uso pessoal, projetos ou acadêmico.
-Nos vemos por ai, abraços, e até mais.
+Desejo a todos que estiverem acompanhando esse projeto que seu aprendizado seja grandioso, e que eu consiga repassar conhecimentos importantes que realmente façam diferença na sua vida. 
+Abraços!
