@@ -1,0 +1,12 @@
+[
+    {
+        "id": 1,
+        "nome": "Super Nintendo",
+        "valor_hora": 1.00
+    },
+    {
+        "id": 2,
+        "nome": "Mega Drive",
+        "valor_hora": 0.5
+    }
+]
