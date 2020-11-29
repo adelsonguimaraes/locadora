@@ -10,4 +10,4 @@ Desejo a todos que estiverem acompanhando esse projeto que seu aprendizado seja 
 Abraços!
 
 # Banner do Evento
-![banner](./bootgamb.png)
+![banner](./bootgamb.jpg)
