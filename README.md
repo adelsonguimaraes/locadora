@@ -1,4 +1,4 @@
-# Sistema de Locador Retro
+# Sistema de Locadora Retro
  - descrição: Este é um projeto realizado em live no meu canal da Twitch [twitch.tv/cafecodes](https://www.twitch.tv/cafecodes), em um evento chamado #BootGamb.
  - Detalhes: O projeto se resume na construção de um pequeno sistema que de gerenciamento para uma locadora de jogos retro.
  - Objetivo: O objetivo é ensinar para o público, partindo do zero conceitos e práticas sobre JavaScript e PHP.
