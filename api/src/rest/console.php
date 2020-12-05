@@ -1,31 +1,40 @@
 <?php
 
+require_once __DIR__ . "/../dao/console_dao.php";
+
 /* Trata request */
 $json = $_REQUEST; // post/get/put/delete
 if (empty($json)) $json = file_get_contents("php://input");
 if (!is_array($json)) $json = json_decode($json, true);
 
 // invocando o metodo
-$json['metodo']($json);
+('console_' . $json['metodo'])($json); // console_metodo($json)
 
-function listar ($json) {
-    $response = array("success"=>false, "data"=>"", "msg"=>"");
+function console_listar () {
+    $console_dao = new console_dao();
+    $resp = $console_dao->listar();
+    echo json_encode($resp);
+}
 
-    $data = @file_get_contents(__DIR__ . "/../../../db/console_db.json");
-    if ($data===false) {
-        $response['success'] = false;
-        $response['msg'] = "O arquivo não foi encontrado!";
-        die (json_encode($response));
-    }
+function console_cadastrar ($json) {
+    $data = $json['data'];
+    $console_dao = new console_dao();
+    $resp = $console_dao->cadastrar($data);
+    echo json_encode($resp);
+}
 
-    $data = json_decode($data);
+function console_atualizar ($json) {
+    $data = $json['data'];
+    $console_dao = new console_dao();
+    $resp = $console_dao->atualizar($data);
+    echo json_encode($resp);
+}
 
-    // tratamento
-
-    $response['success'] = true;
-    $response['data'] = $data;
-
-    echo json_encode($response);
+function console_remover ($json) {
+    $id = $json['data'];
+    $console_dao = new console_dao();
+    $resp = $console_dao->remover($id);
+    echo json_encode($resp);
 }
 
 ?>

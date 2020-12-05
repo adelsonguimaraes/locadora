@@ -13,7 +13,7 @@ function setTbody(data) {
         string += `<td>${e.nome}</td>`;
         string += `<td>${e.valor_hora}</td>`;
         string += `<td>
-            <div class="btn-groub">
+            <div class="btn-group">
                 <button type="button" class="btn" onclick='editar(${e.id})'>
                     <i class="glyphicon glyphicon-pencil"></i>
                 </button>
@@ -77,12 +77,40 @@ function editar (id) {
 }
 
 function remover (id) {
-    console.log(obj);
+    let c = window.confirm('Você realmente quer remover este console?');
+    if (c) {
+        fetch('./../../api/src/rest/console.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            mode: 'cors',
+            cache: 'default',
+            body: JSON.stringify({
+                metodo: 'remover',
+                data: id
+            })
+        })
+        .then((response)=>{
+            if (response.ok) return response.json();
+        })
+        .then((data)=>{
+            if (data.success) {
+                listar();
+            }else{
+                alert(data.msg);
+            }
+        });
+    }
 }
 
 function cancelar () {
     document.querySelector('section#grid').style.display = 'block';
     document.querySelector('section#form').style.display = 'none';
+    let form = document.querySelector('#formConsole');
+    form.querySelector("input[name=id]").value = "";
+    form.reset();
 }
 
 function salvar () {
@@ -92,5 +120,31 @@ function salvar () {
     obj.nome = form.querySelector('input[name=nome]').value;
     obj.valor_hora = form.querySelector('input[name=valor_hora]').value;
 
-    console.log(obj);
+    let metodo = (parseInt(obj.id)>0) ? 'atualizar' : 'cadastrar';
+
+    fetch('./../../api/src/rest/console.php', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        mode: 'cors',
+        cache: 'default',
+        body: JSON.stringify({
+            metodo: metodo,
+            data: obj
+        })
+    })
+    .then((response)=>{
+        if (response.ok) return response.json();
+    })
+    .then((data)=>{
+        if (data.success) {
+            cancelar();
+            listar();
+        }else{
+            alert(data.msg);
+        }
+    });
+
 }
