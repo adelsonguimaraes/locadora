@@ -11,8 +11,21 @@
 - [REPOSITORIO](https://github.com/adelsonguimaraes/locadora)
 
 # Checklist
-1. Conceito de Variáveis JS/PHP []
-2. Conceito de Funções JS/PHP []
+1. Conceito de Variáveis JS/PHP [X]
+2. Conceito de Funções JS/PHP [X]
+3. Conceito de Manipulação JS [X]
+4. Conceito de Requisições JS [X]
+5. Conceito de Rest API PHP [X]
+6. Conceito de MVC [X]
+7. Construção de Tela do Console [X]
+8. Construção de Controller do Console [X]
+9. Construção de Rest API do Console [X]
+10. Construção de DAO do Console [X]
+11. Criação do Método Listar do Console [X]
+12. Criação do Método Cadastrar do Console [X]
+13. Criação do Método Atualizar do Console [X]
+14. Criação do Método Deletar do Console [X]
+-- Tudo checklist será feito nas demais classes --
  
 # Considerações
 Desejo a todos que estiverem acompanhando esse projeto que seu aprendizado seja grandioso, e que eu consiga repassar conhecimentos importantes que realmente façam diferença na sua vida. 
