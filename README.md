@@ -25,7 +25,6 @@
 12. Criação do Método Cadastrar do Console [X]
 13. Criação do Método Atualizar do Console [X]
 14. Criação do Método Deletar do Console [X]
--- Tudo checklist será feito nas demais classes --
  
 # Considerações
 Desejo a todos que estiverem acompanhando esse projeto que seu aprendizado seja grandioso, e que eu consiga repassar conhecimentos importantes que realmente façam diferença na sua vida. 
