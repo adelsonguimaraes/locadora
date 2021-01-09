@@ -4,17 +4,5 @@
         "descricao": "Aventura",
         "datacadastro": "2021-01-09 05:01:10",
         "dataedicao": "2021-01-09 06:10:00"
-    },
-    {
-        "id": 2,
-        "descricao": "Esporte",
-        "datacadastro": "2021-01-09 17:44:56",
-        "dataedicao": ""
-    },
-    {
-        "id": 3,
-        "descricao": "Estrat\u00e9gia",
-        "datacadastro": "2021-01-09 17:48:29",
-        "dataedicao": ""
     }
 ]

@@ -60,6 +60,50 @@ function novo () {
     document.querySelector('section#form').style.display = 'block';
 }
 
+function editar (id) {
+    let result = null;
+    categorias.forEach((e)=>{
+        if (parseInt(e.id) === parseInt(id)) {
+            result = e;
+        }
+    });
+
+    let form = document.querySelector('#formCategoria');
+    form.querySelector('input[name=id]').value = result.id;
+    form.querySelector('input[name=descricao]').value = result.descricao;
+
+    novo();
+}
+
+function remover (id) {
+    let c = window.confirm('Você realmente deseja remover?');
+    if (c) {
+        fetch('./../../api/src/rest/categoria.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json'
+            },
+            mode: 'cors',
+            cache: 'default',
+            body: JSON.stringify({
+                metodo: 'remover',
+                data: id
+            })  
+        })
+        .then((response)=>{
+            if (response.ok) return response.json();
+        })
+        .then((data)=>{
+            if (data.success) {
+                listar();
+            }else{
+                alert(data.msg);
+            }
+        });
+    }
+}
+
 function salvar () {
     let obj = {};
     let form = document.querySelector('#formCategoria');
@@ -104,7 +148,7 @@ function cancelar () {
 
 function convert_data_hora (timestamp) {
     if (timestamp==='') return timestamp;
-    
+
     let data_hora = timestamp.split(' ');
     let data = data_hora[0];
     let hora = data_hora[1];

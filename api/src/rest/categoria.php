@@ -21,4 +21,18 @@ function categoria_cadastrar($json) {
     echo json_encode($resp);
 }
 
+function categoria_atualizar($json) {
+    $data = $json['data'];
+    $categoria_dao = new categoria_dao();
+    $resp = $categoria_dao->atualizar($data);
+    echo json_encode($resp);
+}
+
+function categoria_remover ($json) {
+    $id = $json['data'];
+    $categoria_dao = new categoria_dao();
+    $resp = $categoria_dao->remover($id);
+    echo json_encode($resp);
+}
+
 ?>

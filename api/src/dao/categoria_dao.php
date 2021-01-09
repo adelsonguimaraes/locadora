@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('America/Manaus');
+
 class categoria_dao {
     private $path = "";
     private $db = "";
@@ -54,6 +56,54 @@ class categoria_dao {
 
         $response['success'] = true;
         $response['data'] = $id;
+
+        return $response;
+    }
+
+    function atualizar ($data) {
+        $response = array ("success"=> false, "data"=> "", "msg"=> "");
+
+        $obj = array(
+            "id"=> intval($data['id']),
+            "descricao"=> $data['descricao'],
+            "datacadastro"=> "",
+            "dataedicao"=> date('Y-m-d H:i:s')
+        );
+
+        $array = array();
+        foreach ($this->db as $key) {
+            if (intval($key['id']) === intval($obj['id'])) {
+                $obj['datacadastro'] = $key['datacadastro'];
+                array_push($array, $obj);
+            }else{
+                array_push($array, $key);
+            }
+        }
+
+        $resp = $this->writeFile($array, "Categoria:Atualizar");
+        if (!$resp['success']) return $resp;
+
+        $response['success'] = true;
+        $response['data'] = true;
+
+        return $response;
+    }
+
+    function remover ($id) {
+        $response = array ("success"=> false, "data"=> "", "msg"=> "");
+
+        $array = array();
+        foreach($this->db as $key) {
+            if (intval($key['id'] !== intval($id))) {
+                array_push($array, $key);
+            }
+        }
+
+        $resp = $this->writeFile($array, "Categoria:Remover");
+        if (!$resp['success']) return $resp;
+
+        $response['success'] = true;
+        $response['data'] = true;
 
         return $response;
     }
